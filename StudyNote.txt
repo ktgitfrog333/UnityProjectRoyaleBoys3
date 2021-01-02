@@ -1,0 +1,27 @@
+/**
+ * 得た知見など
+ */
+・操作方法の設定
+Edit > Project Setting > InputからProject Settingを開く
+□ボタンはjoystick button 0:Square
+
+/**
+ * つまずいた箇所と解決方法まとめ
+ */
+【発生事象_001】
+Standard Assetsとユニティちゃんをインポート、設定変更にてエラー発生。
+・【2020】UNITY-CHAN（ユニティちゃん）を最速で動かす具体的な方法｜Unishar-ユニシャー
+https://miyagame.net/unity-chan-move/
+上記の手順「unitychanにThird Person User Controlスクリプトをアタッチ」でAddComponent出来ない事象が発生。
+
+【原因_001】
+Assets\Standard Assets\Utility\SimpleActivatorMenu.cs
+上記パスのスクリプトファイル内にて、GUITextが古い宣言の為、コンパイルエラーが発生。
+
+【解決方法_001】
+・【Unity】Standard Assetsでエラーが出た時の対処方【error CS0619】 _ いかけんの家
+https://www.ikaken.com/archives/1747
+上記の手順「SimpleActivatorMenu.csを修正する」を実施。
+
+「GUIText」を「Text」に変更
+using UnityEngine.UI;を追加
