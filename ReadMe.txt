@@ -1,3 +1,14 @@
+コミット: cbff91edc06da719b6e5d1e241edf705d7207a5a [cbff91e]
+日時: 2021年1月3日 12:47:30
+・Cinemachine設定を変更
+Assets\Scenes\02_Stage001.unity
+・コントローラー設定を変更。左スティック操作と右スティック操作の設定を変更。
+ProjectSettings\InputManager.asset
+・コントローラーの右スティックで視点制御するスクリプトを作成
+Assets\Scripts\ScCinemachineControll.cs
+・全体のパラメータ情報を管理する定数クラスを作成。上下、左右の意味を表す文字列を追加。
+Assets\Scripts\Common\CsNormalLevelDesignOfCommon.cs
+
 コミット: 3a6cee9f5d87cc7b4f1581572f082f9ef4f23c9a [3a6cee9]
 日時: 2021年1月2日 23:09:23
 ・タイトルシーンにてユニティちゃん使用ライセンスの記載
