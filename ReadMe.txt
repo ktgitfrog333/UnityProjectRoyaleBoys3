@@ -1,3 +1,10 @@
+コミット: 8e89968a7249072f0091c6ef7811ada1dc384885 [8e89968]
+日時: 2021年1月9日 14:14:13
+・メインゲーム画面にゲームオブジェクトを配置（途中）
+Assets\Scenes\02_Stage001.unity
+・回転オブジェクトをPrefab化
+Assets\Prefab\GoSpin001.prefab
+
 コミット: cbff91edc06da719b6e5d1e241edf705d7207a5a [cbff91e]
 日時: 2021年1月3日 12:47:30
 ・Cinemachine設定を変更
