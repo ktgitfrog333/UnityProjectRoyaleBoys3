@@ -25,3 +25,10 @@ https://www.ikaken.com/archives/1747
 
 「GUIText」を「Text」に変更
 using UnityEngine.UI;を追加
+
+【発生事象_002】
+プレイヤーが坂のPlaneを上る際にスピードが落ちる
+
+【原因_002】
+Rigitbodyの影響によって坂判定がある
+床に対してプレイヤーの重力が常に90度となるように制御すれば解決する？
