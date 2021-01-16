@@ -5,6 +5,33 @@
 Edit > Project Setting > InputからProject Settingを開く
 □ボタンはjoystick button 0:Square
 
+・三角形の種類
+Isosceles triangle（二等辺三角形）
+Equilateral triangle（正三角形）
+Right  triangle（直角三角形）
+https://you-eigo.com/triangles/
+
+・[SerializeField] 属性をつけていると、CS0649警告が表示される
+[SerializeField]の記載しているソースコード上で下記を追記する
+#pragma warning disable 649
+
+参考元サイト
+[SerializeField] 属性をつけていると、CS0649警告が出るようになった。消したい。
+https://qiita.com/chocho/items/1633f56e57c4291f47cf
+
+・ベルトコンベアの動き
+https://qiita.com/toRisouP/items/f7a0c24fa846cb33485f
+
+/**
+ * 砲台ごとの値設定メモ
+ */
+①中心にある砲台
+V 3x	-0.2
+V 3y	0
+V 3z	-1.1
+Force Magnitude	27
+Destroy Timer	20
+
 /**
  * つまずいた箇所と解決方法まとめ
  */
