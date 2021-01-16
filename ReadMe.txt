@@ -1,3 +1,10 @@
+コミット: 04a59b2702a09502f492e3f6664c5e54e6c13181 [04a59b2]
+日時: 2021年1月16日 23:19:12
+・メインゲーム画面にて、配置漏れオブジェクトを配置
+Assets\Scenes\02_Stage001.unity
+・ProBuilderウィンドウ閉じたことによる変更
+ProjectSettings\Packages\com.unity.probuilder\Settings.json
+
 コミット: c4058db7828e5be75fafd60a3a81d0c562d4c50d [c4058db]
 日時: 2021年1月16日 17:38:32
 ・作業メモを追記
