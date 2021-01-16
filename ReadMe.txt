@@ -1,3 +1,57 @@
+コミット: c4058db7828e5be75fafd60a3a81d0c562d4c50d [c4058db]
+日時: 2021年1月16日 17:38:32
+・作業メモを追記
+StudyNote.txt
+・メインステージ画面作成（7割完成）
+ステージ頂上とゴール辺りを追加
+大砲・回転パネル・自動回転お邪魔オブジェクトを配置
+スタート地点の床に穴を空けるetc...
+Scenes\02_Stage001.unity
+・カメラスクリプトへ警告エラーを消す記述を追加
+Assets\Scripts\ScCinemachineControll.cs
+・大砲や自動回転お邪魔オブジェクトに関する定数を追加
+Assets\Scripts\Common\CsNormalLevelDesignOfCommon.cs
+・ProBuilderのアセット追加
+Packages\manifest.json
+Packages\packages-lock.json
+ProjectSettings\Packages\com.unity.probuilder\Settings.json
+・衝突判定の為のMaterialを作成
+Assets\Physics Matetials\PmConveyor.physicMaterial
+・正三角形のPrefabを作成
+Assets\Prefab\EquilateralTriangle.prefab
+・大砲のPrefabを作成
+Assets\Prefab\GoCannon.prefab
+・自動回転お邪魔オブジェクトのPrefabを作成
+Assets\Prefab\GoMotor.prefab
+・直角三角形のPrefabを作成
+Assets\Prefab\IsoscelesTriangle.prefab
+・弾（中心）のPrefabを作成
+Assets\Prefab\SpBulletCenter.prefab
+・弾（左１）のPrefabを作成
+Assets\Prefab\SpBulletLeft001.prefab
+・弾（左２）のPrefabを作成
+Assets\Prefab\SpBulletLeft002.prefab
+・弾（右１）のPrefabを作成
+Assets\Prefab\SpBulletRight001.prefab
+・弾（右２）のPrefabを作成
+Assets\Prefab\SpBulletRight002.prefab
+・大砲から弾を生成するスクリプト作成
+Assets\Scripts\ScBulletCreate.cs
+・弾を飛ばして一定時間後に破壊するスクリプト作成
+Assets\Scripts\ScBulletShot.cs
+・ベルトコンベア制御のスクリプト作成
+Assets\Scripts\ScConveyor.cs
+・ゴール制御のスクリプト作成（ゴールシーンへは未遷移）
+Assets\Scripts\ScGoalSequence.cs
+・自動回転お邪魔オブジェクトの回転制御スクリプト作成
+Assets\Scripts\ScMotorSpin.cs
+・タイマーBeanを作成
+Assets\Scripts\Beans\CsTimerBean.cs
+・Transform情報のBeanを作成
+Assets\Scripts\Beans\CsTransformBean.cs
+・初期値を設定するクラスを作成
+Assets\Scripts\Common\CsNormalLogicDesignOffSets.cs
+
 コミット: 8e89968a7249072f0091c6ef7811ada1dc384885 [8e89968]
 日時: 2021年1月9日 14:14:13
 ・メインゲーム画面にゲームオブジェクトを配置（途中）

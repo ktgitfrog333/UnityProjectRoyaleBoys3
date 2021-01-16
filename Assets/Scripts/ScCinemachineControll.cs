@@ -13,6 +13,7 @@ public class ScCinemachineControll : MonoBehaviour
     private float moveSpeed = 7f;
 
     //private CharacterController _characterController;
+    #pragma warning disable 649
     /// <summary>エディタでVirtual Cameraをアタッチ</summary>
     [SerializeField] private CinemachineVirtualCamera _camera;
     /// <summary>CinemachineOrbitalTransposerをスクリプト制御</summary>
