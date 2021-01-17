@@ -1,3 +1,15 @@
+コミット: 5aea0b955b51b551f6ab156637ebbd092551a367 [5aea0b9]
+日時: 2021年1月17日 21:03:29
+★ベルトコンベアの動きに軽微な修正
+・マテリアル座標移動のメモ
+StudyNote.txt
+・マテリアル設定など
+Assets\Scenes\02_Stage001.unity
+・マテリアルをスクロールする処理を追加
+Assets\Scripts\ScConveyor.cs
+・マテリアル設定変更
+Assets\WorldMaterialsFree\BathroomTiles_StandardShader.mat
+
 コミット: 2acf7489690f250d5f4318979af265df78dfa674 [2acf748]
 日時: 2021年1月17日 18:37:41
 ★メインゲーム画面にて、全オブジェクトに対してマテリアルを適用
