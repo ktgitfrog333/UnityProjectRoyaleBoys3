@@ -22,6 +22,11 @@ https://qiita.com/chocho/items/1633f56e57c4291f47cf
 ・ベルトコンベアの動き
 https://qiita.com/toRisouP/items/f7a0c24fa846cb33485f
 
+・ゲームオブジェクト内にあるSharder内のMain MapsのOffsetを動かす
+https://nn-hokuson.hatenablog.com/entry/2016/09/02/225443
+GetComponent<Renderer>().sharedMaterial.mainTextureOffset
+Vector2でX座標とY座標を渡す
+
 /**
  * 砲台ごとの値設定メモ
  */

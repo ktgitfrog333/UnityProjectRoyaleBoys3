@@ -37,6 +37,7 @@ public class ScConveyor : MonoBehaviour
 
     void Start()
     {
+        StartCoroutine(ScrollAnimationMaterial());
         //方向は正規化しておく
         DriveDirection = DriveDirection.normalized;
     }
@@ -58,6 +59,21 @@ public class ScConveyor : MonoBehaviour
             {
                 r.AddForce(DriveDirection * _forcePower, ForceMode.Acceleration);
             }
+        }
+    }
+
+    /// <summary>
+    /// マテリアルをスクロールする
+    /// </summary>
+    /// <returns></returns>
+    private IEnumerator ScrollAnimationMaterial()
+    {
+        float count = 0f;
+        while(true)
+        {
+            count -= Time.time;
+            GetComponent<Renderer>().sharedMaterial.mainTextureOffset = new Vector2(count, 0f);
+            yield return new WaitForSeconds(0.1f);
         }
     }
 
