@@ -1,3 +1,25 @@
+コミット: 2acf7489690f250d5f4318979af265df78dfa674 [2acf748]
+日時: 2021年1月17日 18:37:41
+★メインゲーム画面にて、全オブジェクトに対してマテリアルを適用
+・弾のPrefabへMaterialsを追加
+Assets\Prefab\SpBulletCenter.prefab
+Assets\Prefab\SpBulletLeft001.prefab
+Assets\Prefab\SpBulletLeft002.prefab
+Assets\Prefab\SpBulletRight001.prefab
+Assets\Prefab\SpBulletRight002.prefab
+・オブジェクトへマテリアルセットの影響
+Assets\SampleScenes\Materials\OrangeSmooth.mat
+Assets\Standard Assets\Prototyping\Materials\PinkSmooth.mat
+Assets\Standard Assets\Prototyping\Materials\YellowSmooth.mat
+・ステージ全体へMaterialsを追加
+Assets\Scenes\02_Stage001.unity
+・青色マテリアルを追加
+Assets\Materials\TileColor_Blue.mat
+・紫色マテリアルを追加
+Assets\Materials\TileColor_purple.mat
+・WorldMaterialsFreeのアセットを追加
+Assets\WorldMaterialsFree
+
 コミット: 04a59b2702a09502f492e3f6664c5e54e6c13181 [04a59b2]
 日時: 2021年1月16日 23:19:12
 ・メインゲーム画面にて、配置漏れオブジェクトを配置
