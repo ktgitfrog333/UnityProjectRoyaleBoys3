@@ -1,3 +1,13 @@
+コミット: e3564afbe580171a3e7cfd2df3a9eca48f289c58 [e3564af]
+日時: 2021年1月21日 22:52:36
+★プレイヤーメカニクスの不具合を修正
+・作業メモ追加
+StudyNote.txt
+・プレイヤーの高さのColider設定を変更
+Assets\Scenes\02_Stage001.unity
+・プレイヤー操作ロジック変更（対空状態で少し移動できるように、段差に当たりながらジャンプしても乗り越え可能、ブロックの端に嵌った際に向いた方向に移動可能）
+Assets\Standard Assets\Characters\ThirdPersonCharacter\Scripts\ThirdPersonCharacter.cs
+
 コミット: 5aea0b955b51b551f6ab156637ebbd092551a367 [5aea0b9]
 日時: 2021年1月17日 21:03:29
 ★ベルトコンベアの動きに軽微な修正
