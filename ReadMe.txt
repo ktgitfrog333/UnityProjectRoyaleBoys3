@@ -1,3 +1,54 @@
+コミット: e3564afbe580171a3e7cfd2df3a9eca48f289c58 [e3564af]
+日時: 2021年1月21日 22:52:36
+★プレイヤーメカニクスの不具合を修正
+・作業メモ追加
+StudyNote.txt
+・プレイヤーの高さのColider設定を変更
+Assets\Scenes\02_Stage001.unity
+・プレイヤー操作ロジック変更（対空状態で少し移動できるように、段差に当たりながらジャンプしても乗り越え可能、ブロックの端に嵌った際に向いた方向に移動可能）
+Assets\Standard Assets\Characters\ThirdPersonCharacter\Scripts\ThirdPersonCharacter.cs
+
+コミット: 5aea0b955b51b551f6ab156637ebbd092551a367 [5aea0b9]
+日時: 2021年1月17日 21:03:29
+★ベルトコンベアの動きに軽微な修正
+・マテリアル座標移動のメモ
+StudyNote.txt
+・マテリアル設定など
+Assets\Scenes\02_Stage001.unity
+・マテリアルをスクロールする処理を追加
+Assets\Scripts\ScConveyor.cs
+・マテリアル設定変更
+Assets\WorldMaterialsFree\BathroomTiles_StandardShader.mat
+
+コミット: 2acf7489690f250d5f4318979af265df78dfa674 [2acf748]
+日時: 2021年1月17日 18:37:41
+★メインゲーム画面にて、全オブジェクトに対してマテリアルを適用
+・弾のPrefabへMaterialsを追加
+Assets\Prefab\SpBulletCenter.prefab
+Assets\Prefab\SpBulletLeft001.prefab
+Assets\Prefab\SpBulletLeft002.prefab
+Assets\Prefab\SpBulletRight001.prefab
+Assets\Prefab\SpBulletRight002.prefab
+・オブジェクトへマテリアルセットの影響
+Assets\SampleScenes\Materials\OrangeSmooth.mat
+Assets\Standard Assets\Prototyping\Materials\PinkSmooth.mat
+Assets\Standard Assets\Prototyping\Materials\YellowSmooth.mat
+・ステージ全体へMaterialsを追加
+Assets\Scenes\02_Stage001.unity
+・青色マテリアルを追加
+Assets\Materials\TileColor_Blue.mat
+・紫色マテリアルを追加
+Assets\Materials\TileColor_purple.mat
+・WorldMaterialsFreeのアセットを追加
+Assets\WorldMaterialsFree
+
+コミット: 04a59b2702a09502f492e3f6664c5e54e6c13181 [04a59b2]
+日時: 2021年1月16日 23:19:12
+・メインゲーム画面にて、配置漏れオブジェクトを配置
+Assets\Scenes\02_Stage001.unity
+・ProBuilderウィンドウ閉じたことによる変更
+ProjectSettings\Packages\com.unity.probuilder\Settings.json
+
 コミット: c4058db7828e5be75fafd60a3a81d0c562d4c50d [c4058db]
 日時: 2021年1月16日 17:38:32
 ・作業メモを追記

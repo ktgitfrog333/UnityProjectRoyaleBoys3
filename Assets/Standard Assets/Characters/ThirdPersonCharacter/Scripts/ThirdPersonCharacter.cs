@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityStandardAssets.CrossPlatformInput;
 
 namespace UnityStandardAssets.Characters.ThirdPerson
 {
@@ -65,9 +66,9 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			else
 			{
 				HandleAirborneMovement();
-			}
+            }
 
-			ScaleCapsuleForCrouching(crouch);
+            ScaleCapsuleForCrouching(crouch);
 			PreventStandingInLowHeadroom();
 
 			// send input and other state parameters to the animator
@@ -113,6 +114,10 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         //    UpdateAnimator(move);
         //}
 
+        /// <summary>
+        /// 当たり判定を変形させる
+        /// </summary>
+        /// <param name="crouch">しゃがんだ状態フラグ</param>
         void ScaleCapsuleForCrouching(bool crouch)
 		{
             if (m_IsGrounded && crouch)
@@ -146,12 +151,12 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 				float crouchRayLength = m_CapsuleHeight - m_Capsule.radius * k_Half;
 				if (Physics.SphereCast(crouchRay, m_Capsule.radius * k_Half, crouchRayLength, Physics.AllLayers, QueryTriggerInteraction.Ignore))
 				{
-					m_Crouching = true;
+                    m_Crouching = true;
 				}
 			}
 		}
 
-
+        private float _animationAirbroneStopStatus = 0.0f;
 		void UpdateAnimator(Vector3 move)
 		{
             // update the animator parameters
@@ -162,6 +167,24 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			if (!m_IsGrounded)
 			{
                 m_Animator.SetFloat("Jump", m_Rigidbody.velocity.y);
+            }
+
+            // ジャンプ状態でその場に硬直した時に脱出する
+            if (!m_IsGrounded && m_Rigidbody.velocity.y < 0)
+            {
+                _animationAirbroneStopStatus += Time.time;
+                if (1000.0f < _animationAirbroneStopStatus)
+                {
+                    float h = CrossPlatformInputManager.GetAxis("Horizontal") * 4.0f;
+                    float v = CrossPlatformInputManager.GetAxis("Vertical") * 4.0f;
+                    Vector3 extraGravityForce = (Physics.gravity * m_GravityMultiplier) - Physics.gravity;
+                    Vector3 vector3 = new Vector3(extraGravityForce.x + h, extraGravityForce.y, extraGravityForce.z + v);
+                    m_Rigidbody.velocity = vector3;
+                }
+            }
+            else
+            {
+                _animationAirbroneStopStatus = 0.0f;
             }
             //// ダイブをセット
             //if (!m_IsGrounded)
@@ -179,7 +202,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			float jumpLeg = (runCycle < k_Half ? 1 : -1) * m_ForwardAmount;
 			if (m_IsGrounded)
 			{
-				m_Animator.SetFloat("JumpLeg", jumpLeg);
+                m_Animator.SetFloat("JumpLeg", jumpLeg);
 			}
 
 			// the anim speed multiplier allows the overall speed of walking/running to be tweaked in the inspector,
@@ -198,11 +221,16 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
 		void HandleAirborneMovement()
 		{
+            // 空中でも方向キーの入力による移動を受け付ける
+            float h = CrossPlatformInputManager.GetAxis("Horizontal") * 4.0f;
+            float v = CrossPlatformInputManager.GetAxis("Vertical") * 4.0f;
+
             // apply extra gravity from multiplier:
             Vector3 extraGravityForce = (Physics.gravity * m_GravityMultiplier) - Physics.gravity;
-			m_Rigidbody.AddForce(extraGravityForce);
+            Vector3 vector3 = new Vector3(extraGravityForce.x + h, extraGravityForce.y, extraGravityForce.z + v);
+            m_Rigidbody.AddForce(vector3);
 
-			m_GroundCheckDistance = m_Rigidbody.velocity.y < 0 ? m_OrigGroundCheckDistance : 0.01f;
+            m_GroundCheckDistance = m_Rigidbody.velocity.y < 0 ? m_OrigGroundCheckDistance : 0.01f;
 		}
 
 
@@ -211,9 +239,10 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             // check whether conditions are right to allow a jump:
             if (jump && !crouch && m_Animator.GetCurrentAnimatorStateInfo(0).IsName("Grounded"))
 			{
-				// jump!
-				m_Rigidbody.velocity = new Vector3(m_Rigidbody.velocity.x, m_JumpPower, m_Rigidbody.velocity.z);
-				m_IsGrounded = false;
+                // jump!
+                // ブロックに対して移動し続けた状態でジャンプした際にも垂直に跳ぶように調整
+                m_Rigidbody.velocity = new Vector3(0f, m_JumpPower, 0f);
+                m_IsGrounded = false;
 				m_Animator.applyRootMotion = false;
 				m_GroundCheckDistance = 0.1f;
 			}
@@ -279,20 +308,22 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			// helper to visualise the ground check ray in the scene view
 			Debug.DrawLine(transform.position + (Vector3.up * 0.1f), transform.position + (Vector3.up * 0.1f) + (Vector3.down * m_GroundCheckDistance));
 #endif
-			// 0.1f is a small offset to start the ray from inside the character
-			// it is also good to note that the transform position in the sample assets is at the base of the character
-			if (Physics.Raycast(transform.position + (Vector3.up * 0.1f), Vector3.down, out hitInfo, m_GroundCheckDistance))
-			{
-				m_GroundNormal = hitInfo.normal;
+            // 0.1f is a small offset to start the ray from inside the character
+            // it is also good to note that the transform position in the sample assets is at the base of the character
+            if (Physics.Raycast(transform.position + (Vector3.up * 0.1f), Vector3.down, out hitInfo, m_GroundCheckDistance))
+            {
+                // オブジェクトに接着した状態
+                m_GroundNormal = hitInfo.normal;
 				m_IsGrounded = true;
 				m_Animator.applyRootMotion = true;
 			}
-			else
-			{
-				m_IsGrounded = false;
+            else
+            {
+                // どのオブジェクトにも接着していない状態
+                m_IsGrounded = false;
 				m_GroundNormal = Vector3.up;
 				m_Animator.applyRootMotion = false;
 			}
-		}
+        }
 	}
 }
