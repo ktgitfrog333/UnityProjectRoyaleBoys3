@@ -41,6 +41,15 @@ https://nekopro99.com/move-object-velocity/#:~:text=Rigidbody.,-velocity%E3%81%A
 ThirdPersonAnimatorController
 BlendTree > HumanoidMidAir
 
+タイマーカウントのサイクルの動き
+https://clrmemory.com/programming/unity/circle-gauge-meter-p1/
+
+/**
+ * 落下判定の作り方
+ */
+①プレイヤーの落下の際にプレイヤーの位置-Yに落下オブジェクトを配置
+②プレイヤーのが落下オブジェクトに触れたらスタート地点へ戻す
+
 /**
  * 砲台ごとの値設定メモ
  */
