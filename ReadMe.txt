@@ -1,3 +1,12 @@
+コミット: 82131702384923bc3e5227527289f24ca3d02d6d [8213170]
+日時: 2021年1月23日 14:42:23
+★落下時にスタート位置に戻る機能を追加と開発版にライセンスロゴ表記
+・ゲーム画面にライセンス表記など
+Assets\Scenes\02_Stage001.unity
+・落下判定を追加して、スタートポイントへ戻るように変更
+Assets\Standard Assets\Characters\ThirdPersonCharacter\Scripts\ThirdPersonCharacter.cs
+Assets\Standard Assets\Characters\ThirdPersonCharacter\Scripts\CsTransformBean.cs
+
 コミット: e3564afbe580171a3e7cfd2df3a9eca48f289c58 [e3564af]
 日時: 2021年1月21日 22:52:36
 ★プレイヤーメカニクスの不具合を修正
