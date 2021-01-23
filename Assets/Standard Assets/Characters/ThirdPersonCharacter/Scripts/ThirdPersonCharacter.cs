@@ -30,8 +30,13 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		CapsuleCollider m_Capsule;
 		bool m_Crouching;
 
+        /// <summary>スタート位置のTransform.position情報</summary>
+        public static readonly CsTransformBean STARTPOSITION_TRANSFORM_POSITION = new CsTransformBean(0.0f, 1.045f, 0.0f);
 
-		void Start()
+        /// <summary>空中対空時間</summary>
+        private float _animationAirbroneStopStatus = 0.0f;
+
+        void Start()
 		{
 			m_Animator = GetComponent<Animator>();
 			m_Rigidbody = GetComponent<Rigidbody>();
@@ -41,7 +46,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
 			m_Rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
 			m_OrigGroundCheckDistance = m_GroundCheckDistance;
-		}
+        }
 
 
 		public void Move(Vector3 move, bool crouch, bool jump)
@@ -62,10 +67,10 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			if (m_IsGrounded)
             {
                 HandleGroundedMovement(crouch, jump);
-			}
-			else
+            }
+            else
 			{
-				HandleAirborneMovement();
+                HandleAirborneMovement();
             }
 
             ScaleCapsuleForCrouching(crouch);
@@ -156,7 +161,6 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			}
 		}
 
-        private float _animationAirbroneStopStatus = 0.0f;
 		void UpdateAnimator(Vector3 move)
 		{
             // update the animator parameters
@@ -169,10 +173,11 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                 m_Animator.SetFloat("Jump", m_Rigidbody.velocity.y);
             }
 
-            // ジャンプ状態でその場に硬直した時に脱出する
+            // 空中で硬直した時の挙動制御
             if (!m_IsGrounded && m_Rigidbody.velocity.y < 0)
             {
                 _animationAirbroneStopStatus += Time.time;
+                // ジャンプ状態でその場に硬直した時に脱出する
                 if (1000.0f < _animationAirbroneStopStatus)
                 {
                     float h = CrossPlatformInputManager.GetAxis("Horizontal") * 4.0f;
@@ -180,6 +185,15 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                     Vector3 extraGravityForce = (Physics.gravity * m_GravityMultiplier) - Physics.gravity;
                     Vector3 vector3 = new Vector3(extraGravityForce.x + h, extraGravityForce.y, extraGravityForce.z + v);
                     m_Rigidbody.velocity = vector3;
+                }
+
+                // プレイヤーの下方向
+                Ray crouchRay = new Ray(m_Rigidbody.position + Vector3.up * m_Capsule.radius * k_Half, Vector3.down);
+                float crouchRayLength = (m_CapsuleHeight - m_Capsule.radius * k_Half) * 100f;
+                // 落下し続けてるなら特定のポイントへ戻す
+                if (1500.0f < _animationAirbroneStopStatus && !Physics.SphereCast(crouchRay, m_Capsule.radius * k_Half, crouchRayLength, Physics.AllLayers, QueryTriggerInteraction.Ignore))
+                {
+                    transform.position = new Vector3(STARTPOSITION_TRANSFORM_POSITION.position_x, STARTPOSITION_TRANSFORM_POSITION.position_y, STARTPOSITION_TRANSFORM_POSITION.position_z);
                 }
             }
             else
@@ -217,7 +231,6 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 				m_Animator.speed = 1;
 			}
 		}
-
 
 		void HandleAirborneMovement()
 		{
