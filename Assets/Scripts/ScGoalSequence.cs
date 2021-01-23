@@ -1,31 +1,39 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// ゴール制御するスクリプトクラス
 /// </summary>
 public class ScGoalSequence : MonoBehaviour
 {
+    /// <summary>位置情報</summary>
     Vector3 _position;
-    CsTransformBean _csTransformBean;
+    /// <summary>浮遊移動コルーチン</summary>
+    IEnumerator _moveFloatUp;
 
     // Start is called before the first frame update
     void Start()
     {
         _position = this.transform.position;
-        StartCoroutine(MoveFloatUp());
+        _moveFloatUp = MoveFloatUp();
+        StartCoroutine(_moveFloatUp);
     }
 
     // Update is called once per frame
     void Update()
     {
-        //this.transform.position = new Vector3(_position.x, Mathf.Sin(Time.time) * 2.0f + _position.y, _position.z);
+
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        StopCoroutine(MoveFloatUp());
+        if (collision.gameObject.name.Equals(CsNormalLevelDesignOfCommon.GAMEOBJECT_NAME_UNITYCHAN))
+        {
+            StopCoroutine(_moveFloatUp);
+            SceneManager.LoadScene(CsNormalLevelDesignOfCommon.SCENES_NAME_03_RESULT);
+        }
     }
 
     /// <summary>

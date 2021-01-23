@@ -32,6 +32,14 @@ public static class CsNormalLevelDesignOfCommon
     /// </summary>
     public static readonly string GAMEOBJECT_NAME_PIPE_PARTS = "PiParts001";
     /// <summary>
+    /// ユニティちゃんオブジェクト
+    /// </summary>
+    public static readonly string GAMEOBJECT_NAME_UNITYCHAN = "unitychan";
+    /// <summary>
+    /// リザルト画面のシーン名
+    /// </summary>
+    public static readonly string SCENES_NAME_03_RESULT = "03_Result";
+    /// <summary>
     /// 数字（float）の０
     /// </summary>
     public static readonly float FLOAT_ZERO = 0f;
