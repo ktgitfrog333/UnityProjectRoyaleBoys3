@@ -18,9 +18,9 @@ public class CsRectTransformBean : CsInspectorBean
 
     public CsRectTransformBean(RectTransform rectTransform)
     {
-        this.posX = rectTransform.position.x;
-        this.posY = rectTransform.position.y;
-        this.posZ = rectTransform.position.z;
+        this.posX = rectTransform.localPosition.x;
+        this.posY = rectTransform.localPosition.y;
+        this.posZ = rectTransform.localPosition.z;
         this.width = rectTransform.sizeDelta.x;
         this.height = rectTransform.sizeDelta.y;
         this.scale_X = rectTransform.localScale.x;

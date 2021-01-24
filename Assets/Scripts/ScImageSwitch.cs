@@ -136,7 +136,7 @@ public class ScImageSwitch : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         }
 
         // RectTransformを反映
-        this.gameObject.transform.position = new Vector3(transform.posX, transform.posY, transform.posZ);
+        this.gameObject.GetComponent<RectTransform>().localPosition = new Vector3(transform.posX, transform.posY, transform.posZ);
         this.gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(transform.width, transform.height);
 
         // RectMask2Dを反映
