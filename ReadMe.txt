@@ -1,3 +1,19 @@
+コミット: 0e35c646b449b511023570ecb101ac8ebbbd5152 [0e35c64]
+日時: 2021年1月24日 19:06:40
+★タイトル画面へ戻るボタンに対してシーン移動機能を実装
+・リザルト画面にて、ボタンUIの情報変更（トリガー追加など）
+Assets\Scenes\03_Result.unity
+・コントローラー操作にて、UIが選択できるように修正。既存選択条件を修正。
+Assets\Scripts\ScImageSwitch.cs
+・定義クラスへタイトル画面のシーン名、InputManager設定の一部キーの名前を追加
+Assets\Scripts\Common\CsNormalLevelDesignOfCommon.cs
+・UI切り替え制御クラスにて、フラグ条件を追加
+Assets\Scripts\Common\CsNormalLogicDesignOfUIVisualController.cs
+・InputManagerにて、コントローラーの十字キー設定を追加。決定キーの設定を変更。
+ProjectSettings\InputManager.asset
+・ボタンUIをクリックした際に、タイトル画面へ遷移する処理を追加
+Assets\Scripts\ScReturnTitle.cs
+
 コミット: bb5ae4122c83b85e04bdb3a67561a9187d1506bb [bb5ae41]
 日時: 2021年1月24日 15:23:30
 ★リザルト画面へUIを配置して、UI選択制御を実装
