@@ -1,3 +1,73 @@
+コミット: dc53cc203ed8519ede4cdcca8ff9f2b8bcfa6e60 [dc53cc2]
+日時: 2021年1月24日 22:14:31
+★リザルト画面のUI修正、背景画像の設定
+・リザルト画面にて、NewRecordメッセージに点滅アニメーション、背景画像の設定追加とCanvasをカメラ視点を元に設定変更など
+Assets\Scenes\03_Result.unity
+・Canvas設定の影響でUIの選択切り替えに不具合が出た為、修正。
+Assets\Scripts\ScImageSwitch.cs
+Assets\Scripts\Beans\CsRectTransformBean.cs
+・NewRecordのオブジェクトUIの名前を追加
+Assets\Scripts\Common\CsNormalLevelDesignOfCommon.cs
+・リザルト画面用の背景画像を作成
+Assets\Images\Background_03_Result_01.png
+・NewRecordメッセージに点滅アニメーションを制御するスクリプトクラス
+Assets\Scripts\ScResultUIAnimation.cs
+
+コミット: 0e35c646b449b511023570ecb101ac8ebbbd5152 [0e35c64]
+日時: 2021年1月24日 19:06:40
+★タイトル画面へ戻るボタンに対してシーン移動機能を実装
+・リザルト画面にて、ボタンUIの情報変更（トリガー追加など）
+Assets\Scenes\03_Result.unity
+・コントローラー操作にて、UIが選択できるように修正。既存選択条件を修正。
+Assets\Scripts\ScImageSwitch.cs
+・定義クラスへタイトル画面のシーン名、InputManager設定の一部キーの名前を追加
+Assets\Scripts\Common\CsNormalLevelDesignOfCommon.cs
+・UI切り替え制御クラスにて、フラグ条件を追加
+Assets\Scripts\Common\CsNormalLogicDesignOfUIVisualController.cs
+・InputManagerにて、コントローラーの十字キー設定を追加。決定キーの設定を変更。
+ProjectSettings\InputManager.asset
+・ボタンUIをクリックした際に、タイトル画面へ遷移する処理を追加
+Assets\Scripts\ScReturnTitle.cs
+
+コミット: bb5ae4122c83b85e04bdb3a67561a9187d1506bb [bb5ae41]
+日時: 2021年1月24日 15:23:30
+★リザルト画面へUIを配置して、UI選択制御を実装
+・リザルト画面にて、メッセージやタイトル画面へ戻るボタンを配置
+Assets\Scenes\03_Result.unity
+・定義クラスへTransformの初期値、Scaleの初期値を追加
+Assets\Scripts\Common\CsNormalLevelDesignOfCommon.cs
+・リザルト画面にて使用するUIの画像データを作成
+Assets\Images\Logo_03_Result_NEWRECORD!!.png
+Assets\Images\Logo_03_Result_RESULT.png
+Assets\Images\Logo_03_Result_TITLE_01.png
+Assets\Images\Logo_03_Result_TITLE_02.png
+Assets\Images\Logo_03_Result_TITLE_03.png
+Assets\Images\Logo_03_Result_YOURTIME.png
+・UIに対して選択状態で見た目が変化する処理を制御するスクリプトを作成
+Assets\Scripts\ScImageSwitch.cs
+・インスペクター情報を管理するBeanクラスを作成
+Assets\Scripts\Beans\CsInspectorBean.cs
+・RectMask2Dコンポーネント情報を管理するBeanクラスを作成
+Assets\Scripts\Beans\CsRectMask2DBean.cs
+・RectTransformコンポーネント情報を管理するBeanクラスを作成
+Assets\Scripts\Beans\CsRectTransformBean.cs
+・UI表示の制御するクラスを作成
+Assets\Scripts\Common\CsNormalLogicDesignOfUIVisualController.cs
+・UIの選択状態ステータスを表現するEnumを作成
+Assets\Scripts\Enums\EnumSwitchStaus.cs
+・Beanのマップのキーを表現するEnumを作成
+Assets\Scripts\Enums\EnumUIBeanKeys.cs
+
+コミット: 7d954e6a1bcdb7338157d4990a3671ec9b5a4085 [7d954e6]
+日時: 2021年1月23日 15:53:08
+★ゴール判定用オブジェクトへ触れるとリザルト画面シーンへ移動する機能を追加
+・ゴール判定用オブジェクトの設定を変更
+Assets\Scenes\02_Stage001.unity
+・ゴール判定スクリプトへリザルト画面へシーン遷移する処理を追加
+Assets\Scripts\ScGoalSequence.cs
+・プレイヤーオブジェクト名とリザルト画面シーン名の文字列型定数を追加
+Assets\Scripts\Common\CsNormalLevelDesignOfCommon.cs
+
 コミット: 82131702384923bc3e5227527289f24ca3d02d6d [8213170]
 日時: 2021年1月23日 14:42:23
 ★落下時にスタート位置に戻る機能を追加と開発版にライセンスロゴ表記

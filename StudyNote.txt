@@ -44,6 +44,49 @@ BlendTree > HumanoidMidAir
 タイマーカウントのサイクルの動き
 https://clrmemory.com/programming/unity/circle-gauge-meter-p1/
 
+文字入力すると自動でロゴを生成するサイト
+COOLTEXT
+https://ja.cooltext.com/
+https://goodlucknetlife.com/unity-title-image/
+
+実装させたいUI機能
+①ボタンにマウスポインタが触れるとボタンが光る
+②ボタンをマウスクリックで動く
+③コントローラーの操作でUIが選択される（ボタンが光る）
+④ボタンが選択された状態で○ボタンを押すと動く
+⑤コントローラーの方向キーを押した時に、他に選択可能なUIが存在する状態ならそのUIを選択する
+
+リザルト画面の背景
+・成功
+→○と□マーク散りばめる
+・失敗
+→×と△マーク散りばめる
+
+タイトル
+→○□×△マークを散りばめる
+
+ボタンUIにマウスオーバーしたイベントを取得する
+http://coelacanth.jp.net/unity_button_add_mouseover_event/
+
+uGUIでボタン追加
+https://qiita.com/2dgames_jp/items/b3d7d204895d67742d0c
+
+Sprite Mask
+Rect Mask 2D
+	padding
+
+Canvas
+	Images
+
+UIマスク処理の実装方法
+Canvas
+	New Sprite Mask
+		Image（またはButton）
+
+New Sprite MaskへRectMask2Dのコンポーネント追加
+Imageには表示させたい画像.pngを追加
+Maskの座標、大きさ＝Imageの座標、大きさとする
+
 /**
  * 落下判定の作り方
  */
