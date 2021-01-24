@@ -7,6 +7,9 @@ using UnityEngine;
 /// </summary>
 public class CsNormalLogicDesignOfUIVisualController
 {
+    /// <summary>選択状態</summary>
+    public bool _switchStatus { get; set; } = false;
+
     /// <summary>
     /// ImageのPosisionとPaddingを移動させることで切り替え表示を実現するクラス
     /// </summary>
@@ -20,6 +23,8 @@ public class CsNormalLogicDesignOfUIVisualController
 
         if ((int)EnumSwitchStaus.UnSelected == cases)
         {
+            _switchStatus = false;
+
             CsRectTransformBean bean1 = new CsRectTransformBean();
             bean1 = csRectTransformBean;
             bean1.posX = bean1.posX + (bean1.width / 2);
@@ -33,6 +38,8 @@ public class CsNormalLogicDesignOfUIVisualController
         }
         else if ((int)EnumSwitchStaus.Selected == cases)
         {
+            _switchStatus = true;
+
             CsRectTransformBean bean1 = new CsRectTransformBean();
             bean1 = csRectTransformBean;
             bean1.posX = bean1.posX - (bean1.width / 2);

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ScImageSwitch : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
@@ -30,7 +31,38 @@ public class ScImageSwitch : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     // Update is called once per frame
     void Update()
     {
-        
+        // コントローラーの十字キー入力検知
+        if (0 < Input.GetAxis(CsNormalLevelDesignOfCommon.INPUT_MANAGER_AXIS_HORIZONTAL3))
+        {
+            if (!_csNormalLogicDesignOfUIVisualController._switchStatus)
+            {
+                CsRectTransformBean transform = new CsRectTransformBean();
+                CsRectMask2DBean mask2d = new CsRectMask2DBean();
+                foreach (KeyValuePair<int, object> d in _swithSelectedVitual)
+                {
+                    if ((int)EnumUIBeanKeys.RectTransformBean == d.Key)
+                    {
+                        transform = (CsRectTransformBean)d.Value;
+                    }
+                    else if ((int)EnumUIBeanKeys.RectMask2DBean == d.Key)
+                    {
+                        mask2d = (CsRectMask2DBean)d.Value;
+                    }
+                }
+
+                _swithSelectedVitual = _csNormalLogicDesignOfUIVisualController.SwithSelectedVitual(transform, mask2d, (int)EnumSwitchStaus.Selected);
+                UpdateUIVisuals();
+            }
+        }
+
+        // リターンもしくはコントローラーの決定ボタンが押される
+        if (Input.GetButtonDown(CsNormalLevelDesignOfCommon.INPUT_MANAGER_BUTTON_SUBMIT))
+        {
+            if (_csNormalLogicDesignOfUIVisualController._switchStatus)
+            {
+                SceneManager.LoadScene(CsNormalLevelDesignOfCommon.SCENES_NAME_01_TITLE);
+            }
+        }
     }
 
     /// <summary>
@@ -39,22 +71,25 @@ public class ScImageSwitch : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     /// <param name="eventData"></param>
     public void OnPointerEnter(PointerEventData eventData)
     {
-        CsRectTransformBean transform = new CsRectTransformBean();
-        CsRectMask2DBean mask2d = new CsRectMask2DBean();
-        foreach (KeyValuePair<int, object> d in _swithSelectedVitual)
+        if (!_csNormalLogicDesignOfUIVisualController._switchStatus)
         {
-            if ((int)EnumUIBeanKeys.RectTransformBean == d.Key)
+            CsRectTransformBean transform = new CsRectTransformBean();
+            CsRectMask2DBean mask2d = new CsRectMask2DBean();
+            foreach (KeyValuePair<int, object> d in _swithSelectedVitual)
             {
-                transform = (CsRectTransformBean)d.Value;
+                if ((int)EnumUIBeanKeys.RectTransformBean == d.Key)
+                {
+                    transform = (CsRectTransformBean)d.Value;
+                }
+                else if ((int)EnumUIBeanKeys.RectMask2DBean == d.Key)
+                {
+                    mask2d = (CsRectMask2DBean)d.Value;
+                }
             }
-            else if ((int)EnumUIBeanKeys.RectMask2DBean == d.Key)
-            {
-                mask2d = (CsRectMask2DBean)d.Value;
-            }
-        }
 
-        _swithSelectedVitual = _csNormalLogicDesignOfUIVisualController.SwithSelectedVitual(transform, mask2d, (int)EnumSwitchStaus.Selected);
-        UpdateUIVisuals();
+            _swithSelectedVitual = _csNormalLogicDesignOfUIVisualController.SwithSelectedVitual(transform, mask2d, (int)EnumSwitchStaus.Selected);
+            UpdateUIVisuals();
+        }
     }
 
     /// <summary>

@@ -36,9 +36,21 @@ public static class CsNormalLevelDesignOfCommon
     /// </summary>
     public static readonly string GAMEOBJECT_NAME_UNITYCHAN = "unitychan";
     /// <summary>
+    /// タイトル画面のシーン名
+    /// </summary>
+    public static readonly string SCENES_NAME_01_TITLE = "01_Title";
+    /// <summary>
     /// リザルト画面のシーン名
     /// </summary>
     public static readonly string SCENES_NAME_03_RESULT = "03_Result";
+    /// <summary>
+    /// InputManager設定キー名称 Horizontal3
+    /// </summary>
+    public static readonly string INPUT_MANAGER_AXIS_HORIZONTAL3 = "Horizontal3";
+    /// <summary>
+    /// InputManager設定キー名称 Submit
+    /// </summary>
+    public static readonly string INPUT_MANAGER_BUTTON_SUBMIT = "Submit";
     /// <summary>
     /// 数字（float）の０
     /// </summary>
