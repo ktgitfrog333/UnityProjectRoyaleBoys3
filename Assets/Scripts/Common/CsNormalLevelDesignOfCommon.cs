@@ -56,6 +56,14 @@ public static class CsNormalLevelDesignOfCommon
     /// </summary>
     public static readonly float MIN_SIZE = 0.01f;
     /// <summary>
+    /// 位置、幅、高さの初期値（0）
+    /// </summary>
+    public static readonly float OFFSET_NUMBER = 0.0f;
+    /// <summary>
+    /// スケールの初期値（1）
+    /// </summary>
+    public static readonly float OFFSET_NUMBER_SCALE = 1.0f;
+    /// <summary>
     /// 大砲位置補正_X
     /// </summary>
     public static readonly float PIPE_PARTS_POSITION_X = 0.56919f;
@@ -67,4 +75,12 @@ public static class CsNormalLevelDesignOfCommon
     /// 大砲位置補正_Z
     /// </summary>
     public static readonly float PIPE_PARTS_POSITION_Z = -5.7214f;
+    /// <summary>
+    /// 真を表すBoolean
+    /// </summary>
+    public static readonly bool TRUE = true;
+    /// <summary>
+    /// 偽を表すBoolean
+    /// </summary>
+    public static readonly bool FALSE = false;
 }
