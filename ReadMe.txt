@@ -1,3 +1,32 @@
+コミット: bb5ae4122c83b85e04bdb3a67561a9187d1506bb [bb5ae41]
+日時: 2021年1月24日 15:23:30
+★リザルト画面へUIを配置して、UI選択制御を実装
+・リザルト画面にて、メッセージやタイトル画面へ戻るボタンを配置
+Assets\Scenes\03_Result.unity
+・定義クラスへTransformの初期値、Scaleの初期値を追加
+Assets\Scripts\Common\CsNormalLevelDesignOfCommon.cs
+・リザルト画面にて使用するUIの画像データを作成
+Assets\Images\Logo_03_Result_NEWRECORD!!.png
+Assets\Images\Logo_03_Result_RESULT.png
+Assets\Images\Logo_03_Result_TITLE_01.png
+Assets\Images\Logo_03_Result_TITLE_02.png
+Assets\Images\Logo_03_Result_TITLE_03.png
+Assets\Images\Logo_03_Result_YOURTIME.png
+・UIに対して選択状態で見た目が変化する処理を制御するスクリプトを作成
+Assets\Scripts\ScImageSwitch.cs
+・インスペクター情報を管理するBeanクラスを作成
+Assets\Scripts\Beans\CsInspectorBean.cs
+・RectMask2Dコンポーネント情報を管理するBeanクラスを作成
+Assets\Scripts\Beans\CsRectMask2DBean.cs
+・RectTransformコンポーネント情報を管理するBeanクラスを作成
+Assets\Scripts\Beans\CsRectTransformBean.cs
+・UI表示の制御するクラスを作成
+Assets\Scripts\Common\CsNormalLogicDesignOfUIVisualController.cs
+・UIの選択状態ステータスを表現するEnumを作成
+Assets\Scripts\Enums\EnumSwitchStaus.cs
+・Beanのマップのキーを表現するEnumを作成
+Assets\Scripts\Enums\EnumUIBeanKeys.cs
+
 コミット: 7d954e6a1bcdb7338157d4990a3671ec9b5a4085 [7d954e6]
 日時: 2021年1月23日 15:53:08
 ★ゴール判定用オブジェクトへ触れるとリザルト画面シーンへ移動する機能を追加
