@@ -1,3 +1,18 @@
+コミット: dc53cc203ed8519ede4cdcca8ff9f2b8bcfa6e60 [dc53cc2]
+日時: 2021年1月24日 22:14:31
+★リザルト画面のUI修正、背景画像の設定
+・リザルト画面にて、NewRecordメッセージに点滅アニメーション、背景画像の設定追加とCanvasをカメラ視点を元に設定変更など
+Assets\Scenes\03_Result.unity
+・Canvas設定の影響でUIの選択切り替えに不具合が出た為、修正。
+Assets\Scripts\ScImageSwitch.cs
+Assets\Scripts\Beans\CsRectTransformBean.cs
+・NewRecordのオブジェクトUIの名前を追加
+Assets\Scripts\Common\CsNormalLevelDesignOfCommon.cs
+・リザルト画面用の背景画像を作成
+Assets\Images\Background_03_Result_01.png
+・NewRecordメッセージに点滅アニメーションを制御するスクリプトクラス
+Assets\Scripts\ScResultUIAnimation.cs
+
 コミット: 0e35c646b449b511023570ecb101ac8ebbbd5152 [0e35c64]
 日時: 2021年1月24日 19:06:40
 ★タイトル画面へ戻るボタンに対してシーン移動機能を実装
