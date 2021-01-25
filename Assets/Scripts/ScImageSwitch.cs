@@ -7,6 +7,9 @@ using UnityEngine.SceneManagement;
 
 public class ScImageSwitch : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
+    /// <summary>遷移先のシーン名</summary>
+    [SerializeField] private string _loadScenes = CsNormalLevelDesignOfCommon.SCENES_NAME_01_TITLE;
+
     /// <summary>UI表示制御クラス</summary>
     private CsNormalLogicDesignOfUIVisualController _csNormalLogicDesignOfUIVisualController;
 
@@ -60,7 +63,7 @@ public class ScImageSwitch : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         {
             if (_csNormalLogicDesignOfUIVisualController._switchStatus)
             {
-                SceneManager.LoadScene(CsNormalLevelDesignOfCommon.SCENES_NAME_01_TITLE);
+                SceneManager.LoadScene(_loadScenes);
             }
         }
     }
