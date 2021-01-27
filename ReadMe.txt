@@ -1,3 +1,26 @@
+コミット: 103c1829e3c2a2dc153c5531989d7a11c3fc6315 [103c182]
+日時: 2021年1月28日 8:59:03
+★タイマー機能の実装及びシーン遷移時にスコア情報を渡す機能を実装
+・タイマーUIの追加
+Assets\Scenes\02_Stage001.unity
+・タイマー情報を渡すUIオブジェクト情報の修正
+Assets\Scenes\03_Result.unity
+・メインゲーム画面にて、ゴール時にタイマー情報を渡す処理を追加
+Assets\Scripts\ScGoalSequence.cs
+・リザルト画面にて、受け取った情報をデバッグで表示する処理を追加（暫定）
+Assets\Scripts\ScResultUIAnimation.cs
+・メインゲーム画面のタイマーUIオブジェクト名、リザルト画面のタイマー受け取りUIオブジェクト名を追加
+Assets\Scripts\Common\CsNormalLevelDesignOfCommon.cs
+・タイマーImageの作成
+Assets\Images\Timer_02_Stage001_01.png
+Assets\Images\Timer_02_Stage001_02.png
+・タイマーオブジェクト用の計測処理を行うスクリプトクラスを作成
+Assets\Scripts\ScTimer.cs
+・スコア情報を管理するBeanクラスを作成
+Assets\Scripts\Beans\CsScoresBean.cs
+・シーン遷移制御するクラスを作成
+Assets\Scripts\Common\CsNormalLogicDesignOfWarpedScenes.cs
+
 コミット: 2dce0b5238c1a23bcbbcfa79cca7da2006d482a2 [2dce0b5]
 日時: 2021年1月26日 8:54:41
 ★タイトル画面シーンにて、背景、タイトル文字、ボタンを配置など
