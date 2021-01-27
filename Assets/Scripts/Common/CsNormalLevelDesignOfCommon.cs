@@ -40,6 +40,14 @@ public static class CsNormalLevelDesignOfCommon
     /// </summary>
     public static readonly string GAMEOBJECT_NAME_NEWRECORD = "ImNewRecord";
     /// <summary>
+    /// CaResultのUIオブジェクト
+    /// </summary>
+    public static readonly string GAMEOBJECT_NAME_CANVASRESULT = "CaResult";
+    /// <summary>
+    /// ImTimer01オブジェクト
+    /// </summary>
+    public static readonly string GAMEOBJECT_NAME_IMTIMER01 = "ImTimer01";
+    /// <summary>
     /// タイトル画面のシーン名
     /// </summary>
     public static readonly string SCENES_NAME_01_TITLE = "01_Title";

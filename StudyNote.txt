@@ -87,6 +87,27 @@ New Sprite MaskへRectMask2Dのコンポーネント追加
 Imageには表示させたい画像.pngを追加
 Maskの座標、大きさ＝Imageの座標、大きさとする
 
+・シーン遷移と値渡しについて
+https://note.com/suzukijohnp/n/n050aa20a12f1
+
+移動前のシーンから下記の処理を実装する
+
+次のシーン上にあるゲームオブジェクトから
+スクリプトをGetComponentして、そのスクリプトのクラス内のPublicな変数へ値をセットする
+
+①シーンA
+	ゲームオブジェクトA.コンポーネントA
+	private BeanクラスA = data;
+	
+	シーン遷移メソッド
+	var scTemp = ゲームオブジェクトB.コンポーネントB
+	scTemp.data = 値A
+
+②シーンB
+	ゲームオブジェクトB.コンポーネントB
+	public BeanクラスA;
+	クラスA.値A　取り出せる
+
 /**
  * 落下判定の作り方
  */
