@@ -8,8 +8,13 @@ using UnityEngine.UI;
 /// </summary>
 public class ScResultUIAnimation : MonoBehaviour
 {
+    /// <summary>テキスト変換ロジック</summary>
+    private CsNormalLogicDesignOfConversion _csNormalLogicDesignOfConversion;
+
     /// <summary>親オブジェクト配下の子オブジェクトグループを格納</summary>
     private GameObject[] _gameObjects;
+    /// <summary>スコアタイムUI</summary>
+    private GameObject _gameObjectScoreTime;
     /// <summary>新記録メッセージUI</summary>
     private GameObject _gameObject;
     /// <summary>プレイヤーのスコア情報</summary>
@@ -18,14 +23,30 @@ public class ScResultUIAnimation : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("制限時間:" + _csScoresBean.limitTime);
-        Debug.Log("タイムカウンタ(s):" + _csScoresBean.countTime);
-        Debug.Log("残り時間(s):" + _csScoresBean.nowTime);
+        _csNormalLogicDesignOfConversion = new CsNormalLogicDesignOfConversion();
+
         _gameObjects = new GameObject[transform.childCount];
         for (int i = 0; i < transform.childCount; i++)
         {
             GameObject g = transform.GetChild(i).gameObject;
-            if (g.name.Equals(CsNormalLevelDesignOfCommon.GAMEOBJECT_NAME_NEWRECORD))
+            if (g.name.Equals(CsNormalLevelDesignOfCommon.GAMEOBJECT_NAME_SCORETIME))
+            {
+                _gameObjectScoreTime = g;
+                // タイムカウンタ(s)
+                string time = "";
+                if (Mathf.FloorToInt(_csScoresBean.nowTime) < 1)
+                {
+                    time = CsNormalLevelDesignOfCommon.TIME_OVER_SCORE;
+                    GameObject.Find(CsNormalLevelDesignOfCommon.GAMEOBJECT_NAME_BACKGROUND_CLEAR).SetActive(false);
+                }
+                else
+                {
+                    time = _csNormalLogicDesignOfConversion.ConversionSecondToMinutes(_csScoresBean.countTime);
+                    GameObject.Find(CsNormalLevelDesignOfCommon.GAMEOBJECT_NAME_BACKGROUND_OVER).SetActive(false);
+                }
+                _gameObjectScoreTime.GetComponent<Text>().text = time;
+            }
+            else if (g.name.Equals(CsNormalLevelDesignOfCommon.GAMEOBJECT_NAME_NEWRECORD))
             {
                 _gameObject = g;
             }
