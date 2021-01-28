@@ -12,10 +12,13 @@ public class ScGoalSequence : MonoBehaviour
     Vector3 _position;
     /// <summary>浮遊移動コルーチン</summary>
     IEnumerator _moveFloatUp;
+    /// <summary>シーン遷移制御ロジック</summary>
+    private CsNormalLogicDesignOfWarpedScenes _csNormalLogicDesignOfWarpedScenes;
 
     // Start is called before the first frame update
     void Start()
     {
+        _csNormalLogicDesignOfWarpedScenes = new CsNormalLogicDesignOfWarpedScenes();
         _position = this.transform.position;
         _moveFloatUp = MoveFloatUp();
         StartCoroutine(_moveFloatUp);
@@ -32,7 +35,9 @@ public class ScGoalSequence : MonoBehaviour
         if (collision.gameObject.name.Equals(CsNormalLevelDesignOfCommon.GAMEOBJECT_NAME_UNITYCHAN))
         {
             StopCoroutine(_moveFloatUp);
-            SceneManager.LoadScene(CsNormalLevelDesignOfCommon.SCENES_NAME_03_RESULT);
+            var v = GameObject.Find(CsNormalLevelDesignOfCommon.GAMEOBJECT_NAME_IMTIMER01).GetComponent<ScTimer>();
+            CsScoresBean bean = v._csScoresBean;
+            _csNormalLogicDesignOfWarpedScenes.WarpScenesWithGameSystem(CsNormalLevelDesignOfCommon.SCENES_NAME_03_RESULT, bean);
         }
     }
 

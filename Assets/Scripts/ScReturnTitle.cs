@@ -8,6 +8,9 @@ using UnityEngine.SceneManagement;
 /// </summary>
 public class ScReturnTitle : MonoBehaviour
 {
+    /// <summary>遷移先のシーン名</summary>
+    [SerializeField] private string _loadScenes = CsNormalLevelDesignOfCommon.SCENES_NAME_01_TITLE;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +25,6 @@ public class ScReturnTitle : MonoBehaviour
 
     public void OnClick()
     {
-        SceneManager.LoadScene(CsNormalLevelDesignOfCommon.SCENES_NAME_01_TITLE);
+        SceneManager.LoadScene(_loadScenes);
     }
 }

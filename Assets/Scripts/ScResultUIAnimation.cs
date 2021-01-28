@@ -12,10 +12,15 @@ public class ScResultUIAnimation : MonoBehaviour
     private GameObject[] _gameObjects;
     /// <summary>新記録メッセージUI</summary>
     private GameObject _gameObject;
+    /// <summary>プレイヤーのスコア情報</summary>
+    public CsScoresBean _csScoresBean;
 
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log("制限時間:" + _csScoresBean.limitTime);
+        Debug.Log("タイムカウンタ(s):" + _csScoresBean.countTime);
+        Debug.Log("残り時間(s):" + _csScoresBean.nowTime);
         _gameObjects = new GameObject[transform.childCount];
         for (int i = 0; i < transform.childCount; i++)
         {
