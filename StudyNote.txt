@@ -121,6 +121,17 @@ yield return new WaitForSeconds(0.05f);
 DOTween (HOTween v2)
 https://assetstore.unity.com/packages/tools/animation/dotween-hotween-v2-27676?locale=ja-JP
 
+・フリーBGM/SE
+OtoLogic
+https://otologic.jp/free/faq.html
+
+例1:使用した音素材：OtoLogic(https://otologic.jp)
+例2:音源はオトロジック(CC BY 4.0)からお借りしました。
+
+・音ファイル変換
+AudioConverter
+https://online-audio-converter.com/ja/
+
 /**
  * 落下判定の作り方
  */

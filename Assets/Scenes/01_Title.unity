@@ -632,8 +632,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -352.4, y: -176.8}
-  m_SizeDelta: {x: 102.19092, y: 47.901993}
+  m_AnchoredPosition: {x: -299.3, y: -176.8}
+  m_SizeDelta: {x: 208.3534, y: 47.901993}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1545231735
 MonoBehaviour:
@@ -668,7 +668,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\xA9 UTJ/UCL"
+  m_Text: "\xA9 UTJ/UCL\u3000\xA9 OtoLogic"
 --- !u!222 &1545231736
 CanvasRenderer:
   m_ObjectHideFlags: 0
