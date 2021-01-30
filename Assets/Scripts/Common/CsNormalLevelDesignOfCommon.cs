@@ -44,9 +44,9 @@ public static class CsNormalLevelDesignOfCommon
     /// </summary>
     public static readonly string GAMEOBJECT_NAME_CANVASRESULT = "CaResult";
     /// <summary>
-    /// TeScoreTimeのUIオブジェクト
+    /// TemScoreTimeのUIオブジェクト
     /// </summary>
-    public static readonly string GAMEOBJECT_NAME_SCORETIME = "TeScoreTime";
+    public static readonly string GAMEOBJECT_NAME_SCORETIME2 = "TemScoreTime";
     /// <summary>
     /// ImBackground_ClearのUIオブジェクト
     /// </summary>

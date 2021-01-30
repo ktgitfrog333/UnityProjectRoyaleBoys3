@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 /// <summary>
 /// オブジェクトUIのアニメーション制御するスクリプトクラス
@@ -29,7 +30,7 @@ public class ScResultUIAnimation : MonoBehaviour
         for (int i = 0; i < transform.childCount; i++)
         {
             GameObject g = transform.GetChild(i).gameObject;
-            if (g.name.Equals(CsNormalLevelDesignOfCommon.GAMEOBJECT_NAME_SCORETIME))
+            if (g.name.Equals(CsNormalLevelDesignOfCommon.GAMEOBJECT_NAME_SCORETIME2))
             {
                 _gameObjectScoreTime = g;
                 // タイムカウンタ(s)
@@ -44,7 +45,7 @@ public class ScResultUIAnimation : MonoBehaviour
                     time = _csNormalLogicDesignOfConversion.ConversionSecondToMinutes(_csScoresBean.countTime);
                     GameObject.Find(CsNormalLevelDesignOfCommon.GAMEOBJECT_NAME_BACKGROUND_OVER).SetActive(false);
                 }
-                _gameObjectScoreTime.GetComponent<Text>().text = time;
+                _gameObjectScoreTime.GetComponent<TextMeshProUGUI>().text = time;
             }
             else if (g.name.Equals(CsNormalLevelDesignOfCommon.GAMEOBJECT_NAME_NEWRECORD))
             {
