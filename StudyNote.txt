@@ -114,6 +114,13 @@ http://jikasei.me/font/rounded-mplus/
 
 OneDrive\ドキュメント\f_フォント\rounded-mplus-20150529
 
+・コルーチン
+yield return new WaitForSeconds(0.05f);
+
+・UIアニメーション
+DOTween (HOTween v2)
+https://assetstore.unity.com/packages/tools/animation/dotween-hotween-v2-27676?locale=ja-JP
+
 /**
  * 落下判定の作り方
  */

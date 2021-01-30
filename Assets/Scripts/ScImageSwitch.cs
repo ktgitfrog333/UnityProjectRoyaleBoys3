@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 public class ScImageSwitch : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
@@ -12,6 +11,8 @@ public class ScImageSwitch : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     /// <summary>UI表示制御クラス</summary>
     private CsNormalLogicDesignOfUIVisualController _csNormalLogicDesignOfUIVisualController;
+    /// <summary>シーン制御ロジック</summary>
+    private CsNormalLogicDesignOfWarpedScenes _csNormalLogicDesignOfWarpedScenes;
 
     /// <summary>位置情報を一時管理</summary>
     private CsRectTransformBean _csRectTransformBean;
@@ -19,6 +20,8 @@ public class ScImageSwitch : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     private CsRectMask2DBean _csRectMask2DBean;
     /// <summary>位置情報とマスク情報を一時管理</summary>
     private IDictionary<int, object> _swithSelectedVitual;
+    /// <summary>決定を一度だけ受け付けるフラグ</summary>
+    private bool _onceSubmitFlag;
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +29,8 @@ public class ScImageSwitch : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         _csRectTransformBean = new CsRectTransformBean(this.gameObject.transform as RectTransform);
         _csRectMask2DBean = new CsRectMask2DBean(this.gameObject.GetComponent<RectMask2D>());
         _csNormalLogicDesignOfUIVisualController = new CsNormalLogicDesignOfUIVisualController();
+        _csNormalLogicDesignOfWarpedScenes = new CsNormalLogicDesignOfWarpedScenes();
+        _onceSubmitFlag = false;
         _swithSelectedVitual = new Dictionary<int, object>();
         _swithSelectedVitual = _csNormalLogicDesignOfUIVisualController.SwithSelectedVitual(_csRectTransformBean, _csRectMask2DBean, (int) EnumSwitchStaus.UnSelected);
         UpdateUIVisuals();
@@ -61,9 +66,11 @@ public class ScImageSwitch : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         // リターンもしくはコントローラーの決定ボタンが押される
         if (Input.GetButtonDown(CsNormalLevelDesignOfCommon.INPUT_MANAGER_BUTTON_SUBMIT))
         {
-            if (_csNormalLogicDesignOfUIVisualController._switchStatus)
+            if (_csNormalLogicDesignOfUIVisualController._switchStatus && !_onceSubmitFlag)
             {
-                SceneManager.LoadScene(_loadScenes);
+                _onceSubmitFlag = true;
+                StartCoroutine(_csNormalLogicDesignOfWarpedScenes.WarpScenesWithGameSystem(_loadScenes));
+                GameObject.Find(CsNormalLevelDesignOfCommon.GAMEOBJECT_NAME_IMFADE).GetComponent<ScOpenCloseSceneAnimation>().CloseScene();
             }
         }
     }
