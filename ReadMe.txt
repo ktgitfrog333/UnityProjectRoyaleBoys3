@@ -1,3 +1,17 @@
+コミット: 00ec2b1ebec27e59d072c21ff97f56eabd6e7dd5 [00ec2b1]
+日時: 2021年1月30日 11:00:57
+★リザルト画面にて、タイマーテキストMeshPro適用
+・リザルト画面にて、タイマー表示テキストにマテリアル適用
+Assets\Scenes\03_Result.unity
+・UI表示処理内のテキスト表示処理を修正
+Assets\Scripts\ScResultUIAnimation.cs
+・TextMesh ProのテキストUIオブジェクト名を追加（旧テキストUIオブジェクト名は削除）
+Assets\Scripts\Common\CsNormalLevelDesignOfCommon.cs
+・フォント作成
+Assets\Fonts\rounded-mplus-1c-regular SDF.asset
+・TextMesh Proのアセット追加
+Assets\TextMesh Pro\Fonts.meta
+
 コミット: 7b45d2aa3e0b543b5ca677962eeb04a78a41d198 [7b45d2a]
 日時: 2021年1月29日 8:59:04
 ★メインゲーム画面から受け取ったタイマー情報をリザルト画面へ表示する実装
