@@ -44,6 +44,18 @@ public static class CsNormalLevelDesignOfCommon
     /// </summary>
     public static readonly string GAMEOBJECT_NAME_CANVASRESULT = "CaResult";
     /// <summary>
+    /// TemScoreTimeのUIオブジェクト
+    /// </summary>
+    public static readonly string GAMEOBJECT_NAME_SCORETIME2 = "TemScoreTime";
+    /// <summary>
+    /// ImBackground_ClearのUIオブジェクト
+    /// </summary>
+    public static readonly string GAMEOBJECT_NAME_BACKGROUND_CLEAR = "ImBackground_Clear";
+    /// <summary>
+    /// ImBackground_OverのUIオブジェクト
+    /// </summary>
+    public static readonly string GAMEOBJECT_NAME_BACKGROUND_OVER = "ImBackground_Over";
+    /// <summary>
     /// ImTimer01オブジェクト
     /// </summary>
     public static readonly string GAMEOBJECT_NAME_IMTIMER01 = "ImTimer01";
@@ -63,6 +75,10 @@ public static class CsNormalLevelDesignOfCommon
     /// InputManager設定キー名称 Submit
     /// </summary>
     public static readonly string INPUT_MANAGER_BUTTON_SUBMIT = "Submit";
+    /// <summary>
+    /// 時間切れになった時の表示文字列
+    /// </summary>
+    public static readonly string TIME_OVER_SCORE = "--:--";
     /// <summary>
     /// 数字（float）の０
     /// </summary>

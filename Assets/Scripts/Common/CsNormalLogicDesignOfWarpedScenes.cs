@@ -47,7 +47,6 @@ public class CsNormalLogicDesignOfWarpedScenes
     {
         var g = GameObject.Find(CsNormalLevelDesignOfCommon.GAMEOBJECT_NAME_CANVASRESULT).GetComponent<ScResultUIAnimation>();
         g._csScoresBean = (CsScoresBean)_data;
-        Debug.Log(g._csScoresBean.nowTime);
 
         // シーン移動の度に実行されないように消す
         SceneManager.sceneLoaded -= GameSceneLoaded;

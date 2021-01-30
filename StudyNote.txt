@@ -108,6 +108,12 @@ https://note.com/suzukijohnp/n/n050aa20a12f1
 	public BeanクラスA;
 	クラスA.値A　取り出せる
 
+・フリーフォント
+自家製 Rounded M+ (ラウンデッド エムプラス)
+http://jikasei.me/font/rounded-mplus/
+
+OneDrive\ドキュメント\f_フォント\rounded-mplus-20150529
+
 /**
  * 落下判定の作り方
  */

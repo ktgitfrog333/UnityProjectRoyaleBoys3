@@ -1,3 +1,33 @@
+コミット: 00ec2b1ebec27e59d072c21ff97f56eabd6e7dd5 [00ec2b1]
+日時: 2021年1月30日 11:00:57
+★リザルト画面にて、タイマーテキストMeshPro適用
+・リザルト画面にて、タイマー表示テキストにマテリアル適用
+Assets\Scenes\03_Result.unity
+・UI表示処理内のテキスト表示処理を修正
+Assets\Scripts\ScResultUIAnimation.cs
+・TextMesh ProのテキストUIオブジェクト名を追加（旧テキストUIオブジェクト名は削除）
+Assets\Scripts\Common\CsNormalLevelDesignOfCommon.cs
+・フォント作成
+Assets\Fonts\rounded-mplus-1c-regular SDF.asset
+・TextMesh Proのアセット追加
+Assets\TextMesh Pro\Fonts.meta
+
+コミット: 7b45d2aa3e0b543b5ca677962eeb04a78a41d198 [7b45d2a]
+日時: 2021年1月29日 8:59:04
+★メインゲーム画面から受け取ったタイマー情報をリザルト画面へ表示する実装
+・メインゲーム画面にて、動作確認の為、一時的にタイマー条件を変更（戻し済み）
+Assets\Scenes\02_Stage001.unity
+・タイマーUI配置とそれぞれのUIの配置場所を調整
+Assets\Scenes\03_Result.unity
+・前画面から取得したタイマー情報を画面表示用に変換する処理の追加
+Assets\Scripts\ScResultUIAnimation.cs
+・タイマー情報UI、背景UIオブジェクト名などを追加
+Assets\Scripts\Common\CsNormalLevelDesignOfCommon.cs
+・削除漏れのデバック処理を削除
+Assets\Scripts\Common\CsNormalLogicDesignOfWarpedScenes.cs
+・日付表示フォーマットへ変換する処理クラスを作成
+Assets\Scripts\Common\CsNormalLogicDesignOfConversion.cs
+
 コミット: 103c1829e3c2a2dc153c5531989d7a11c3fc6315 [103c182]
 日時: 2021年1月28日 8:59:03
 ★タイマー機能の実装及びシーン遷移時にスコア情報を渡す機能を実装
