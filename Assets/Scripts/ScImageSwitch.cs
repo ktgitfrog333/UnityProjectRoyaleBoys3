@@ -22,6 +22,10 @@ public class ScImageSwitch : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     private IDictionary<int, object> _swithSelectedVitual;
     /// <summary>決定を一度だけ受け付けるフラグ</summary>
     private bool _onceSubmitFlag;
+    /// <summary>選択された時のSE</summary>
+    [SerializeField] private AudioSource _seSelected;
+    /// <summary>決定が押下された時のSE</summary>
+    [SerializeField] private AudioSource _seSubmited;
 
     // Start is called before the first frame update
     void Start()
@@ -60,6 +64,7 @@ public class ScImageSwitch : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
                 _swithSelectedVitual = _csNormalLogicDesignOfUIVisualController.SwithSelectedVitual(transform, mask2d, (int)EnumSwitchStaus.Selected);
                 UpdateUIVisuals();
+                _seSelected.Play();
             }
         }
 
@@ -71,6 +76,7 @@ public class ScImageSwitch : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
                 _onceSubmitFlag = true;
                 StartCoroutine(_csNormalLogicDesignOfWarpedScenes.WarpScenesWithGameSystem(_loadScenes));
                 GameObject.Find(CsNormalLevelDesignOfCommon.GAMEOBJECT_NAME_IMFADE).GetComponent<ScOpenCloseSceneAnimation>().CloseScene();
+                _seSubmited.Play();
             }
         }
     }
@@ -99,6 +105,7 @@ public class ScImageSwitch : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
             _swithSelectedVitual = _csNormalLogicDesignOfUIVisualController.SwithSelectedVitual(transform, mask2d, (int)EnumSwitchStaus.Selected);
             UpdateUIVisuals();
+            _seSelected.Play();
         }
     }
 
