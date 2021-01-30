@@ -14,6 +14,8 @@ public class ScReturnTitle : MonoBehaviour
     [SerializeField] private string _loadScenes = CsNormalLevelDesignOfCommon.SCENES_NAME_01_TITLE;
     /// <summary>決定を一度だけ受け付けるフラグ</summary>
     private bool _onceSubmitFlag;
+    /// <summary>決定が押下された時のSE</summary>
+    [SerializeField] private AudioSource _seSubmited;
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +37,7 @@ public class ScReturnTitle : MonoBehaviour
             _onceSubmitFlag = true;
             StartCoroutine(_csNormalLogicDesignOfWarpedScenes.WarpScenesWithGameSystem(_loadScenes));
             GameObject.Find(CsNormalLevelDesignOfCommon.GAMEOBJECT_NAME_IMFADE).GetComponent<ScOpenCloseSceneAnimation>().CloseScene();
+            _seSubmited.Play();
         }
     }
 }

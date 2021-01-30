@@ -18,6 +18,9 @@ public class ScGoalSequence : MonoBehaviour
     /// <summary>決定を一度だけ受け付けるフラグ</summary>
     private bool _onceSubmitFlag;
 
+    /// <summary>決定が押下された時のSE</summary>
+    [SerializeField] private AudioSource _seSubmited;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -44,6 +47,7 @@ public class ScGoalSequence : MonoBehaviour
             CsScoresBean bean = v._csScoresBean;
             StartCoroutine(_csNormalLogicDesignOfWarpedScenes.WarpScenesWithGameSystem(CsNormalLevelDesignOfCommon.SCENES_NAME_03_RESULT, bean));
             GameObject.Find(CsNormalLevelDesignOfCommon.GAMEOBJECT_NAME_IMFADE).GetComponent<ScOpenCloseSceneAnimation>().CloseScene();
+            _seSubmited.Play();
         }
     }
 
