@@ -1,3 +1,29 @@
+コミット: 6f54dbed97e275a882cd5c70e70339b86b5ea00a [6f54dbe]
+日時: 2021年1月30日 14:27:36
+★シーン遷移する際に背景スクロールのアニメーション演出を実装
+・タイトル画面にて、シーン開始・シーン遷移時に背景アニメーション追加
+Assets\Scenes\01_Title.unity
+・メインゲーム画面にて、シーン開始・シーン遷移時に背景アニメーション追加
+Assets\Scenes\02_Stage001.unity
+・リザルト画面にて、シーン開始・シーン遷移時に背景アニメーション追加
+Assets\Scenes\03_Result.unity
+・ゴールイベント時にシーン遷移アニメーション追加
+Assets\Scripts\ScGoalSequence.cs
+・UIによる操作でシーン遷移する際に、シーン遷移アニメーション追加
+Assets\Scripts\ScImageSwitch.cs
+・UIのクリック操作でシーン遷移する際に、シーン遷移アニメーション追加
+Assets\Scripts\ScReturnTitle.cs
+・タイマーイベントにてシーン遷移する際に、シーン遷移アニメーション追加
+Assets\Scripts\ScTimer.cs
+・定数クラスにて、背景アニメーション用のImageのUIオブジェクト名とシーン遷移前のクールタイムを追加
+Assets\Scripts\Common\CsNormalLevelDesignOfCommon.cs
+・シーン遷移制御クラスにて、シーン遷移メソッドをコルーチン化
+Assets\Scripts\Common\CsNormalLogicDesignOfWarpedScenes.cs
+・UI用のタグを作成
+ProjectSettings\TagManager.asset
+・アセット追加（DOTween (HOTween v2)）
+Assets\Plugins\Demigiant\
+
 コミット: 00ec2b1ebec27e59d072c21ff97f56eabd6e7dd5 [00ec2b1]
 日時: 2021年1月30日 11:00:57
 ★リザルト画面にて、タイマーテキストMeshPro適用
