@@ -1,3 +1,15 @@
+コミット: b877bf6d7931c06ccfcbef8af96e24d5611d688f [b877bf6]
+日時: 2021年1月30日 15:10:44
+★BGM、SE素材を追加
+・タイトル画面にて、使用ライセンス記載
+Assets\Scenes\01_Title.unity
+・BGM用の音楽ファイルを追加
+Assets\Musics\BGM\
+・SE用の音楽ファイルを追加
+Assets\Musics\SE\
+・使用素材についてのドキュメント作成
+License\使用させて頂いた素材について.txt
+
 コミット: 6f54dbed97e275a882cd5c70e70339b86b5ea00a [6f54dbe]
 日時: 2021年1月30日 14:27:36
 ★シーン遷移する際に背景スクロールのアニメーション演出を実装
