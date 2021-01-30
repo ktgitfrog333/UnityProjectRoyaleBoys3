@@ -19,6 +19,9 @@ public class ScTimer : MonoBehaviour
     /// <summary>タイマーImageのfillAmount値</summary>
     private float _imageFillAmount;
 
+    /// <summary>決定を一度だけ受け付けるフラグ</summary>
+    private bool _onceSubmitFlag;
+
     /// <summary>時間切れになった時に移動するシーン名</summary>
     [SerializeField] private string _warpSceneName = CsNormalLevelDesignOfCommon.SCENES_NAME_03_RESULT;
 
@@ -28,6 +31,7 @@ public class ScTimer : MonoBehaviour
         _csNormalLogicDesignOfWarpedScenes = new CsNormalLogicDesignOfWarpedScenes();
         _csScoresBean = new CsScoresBean();
         _csScoresBean.limitTime = _limitTime;
+        _onceSubmitFlag = false;
         _imageFillAmount = CsNormalLevelDesignOfCommon.FLOAT_ZERO;
 
         _uiTimer = GetComponent<Image>();
@@ -45,8 +49,13 @@ public class ScTimer : MonoBehaviour
         }
         else
         {
-            _csScoresBean.nowTime = CsNormalLevelDesignOfCommon.FLOAT_ZERO;
-            _csNormalLogicDesignOfWarpedScenes.WarpScenesWithGameSystem(_warpSceneName, _csScoresBean);
+            if (!_onceSubmitFlag)
+            {
+                _onceSubmitFlag = true;
+                _csScoresBean.nowTime = CsNormalLevelDesignOfCommon.FLOAT_ZERO;
+                StartCoroutine(_csNormalLogicDesignOfWarpedScenes.WarpScenesWithGameSystem(_warpSceneName, _csScoresBean));
+                GameObject.Find(CsNormalLevelDesignOfCommon.GAMEOBJECT_NAME_IMFADE).GetComponent<ScOpenCloseSceneAnimation>().CloseScene();
+            }
         }
     }
 }

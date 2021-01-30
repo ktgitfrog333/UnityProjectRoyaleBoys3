@@ -15,11 +15,15 @@ public class ScGoalSequence : MonoBehaviour
     /// <summary>シーン遷移制御ロジック</summary>
     private CsNormalLogicDesignOfWarpedScenes _csNormalLogicDesignOfWarpedScenes;
 
+    /// <summary>決定を一度だけ受け付けるフラグ</summary>
+    private bool _onceSubmitFlag;
+
     // Start is called before the first frame update
     void Start()
     {
         _csNormalLogicDesignOfWarpedScenes = new CsNormalLogicDesignOfWarpedScenes();
         _position = this.transform.position;
+        _onceSubmitFlag = false;
         _moveFloatUp = MoveFloatUp();
         StartCoroutine(_moveFloatUp);
     }
@@ -32,12 +36,14 @@ public class ScGoalSequence : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.name.Equals(CsNormalLevelDesignOfCommon.GAMEOBJECT_NAME_UNITYCHAN))
+        if (collision.gameObject.name.Equals(CsNormalLevelDesignOfCommon.GAMEOBJECT_NAME_UNITYCHAN) && !_onceSubmitFlag)
         {
+            _onceSubmitFlag = true;
             StopCoroutine(_moveFloatUp);
             var v = GameObject.Find(CsNormalLevelDesignOfCommon.GAMEOBJECT_NAME_IMTIMER01).GetComponent<ScTimer>();
             CsScoresBean bean = v._csScoresBean;
-            _csNormalLogicDesignOfWarpedScenes.WarpScenesWithGameSystem(CsNormalLevelDesignOfCommon.SCENES_NAME_03_RESULT, bean);
+            StartCoroutine(_csNormalLogicDesignOfWarpedScenes.WarpScenesWithGameSystem(CsNormalLevelDesignOfCommon.SCENES_NAME_03_RESULT, bean));
+            GameObject.Find(CsNormalLevelDesignOfCommon.GAMEOBJECT_NAME_IMFADE).GetComponent<ScOpenCloseSceneAnimation>().CloseScene();
         }
     }
 

@@ -15,10 +15,11 @@ public class CsNormalLogicDesignOfWarpedScenes
     /// 次のシーンへ遷移する
     /// </summary>
     /// <param name="sceneName">シーン名</param>
-    public void WarpScenesWithGameSystem(string sceneName)
+    public IEnumerator WarpScenesWithGameSystem(string sceneName)
     {
         if (!string.IsNullOrEmpty(sceneName))
         {
+            yield return new WaitForSeconds(CsNormalLevelDesignOfCommon.COOL_TIME);
             SceneManager.LoadScene(sceneName);
         }
     }
@@ -28,10 +29,11 @@ public class CsNormalLogicDesignOfWarpedScenes
     /// </summary>
     /// <param name="sceneName">シーン名</param>
     /// <param name="data">次のシーンへ渡す値</param>
-    public void WarpScenesWithGameSystem(string sceneName, object data)
+    public IEnumerator WarpScenesWithGameSystem(string sceneName, object data)
     {
         if (!string.IsNullOrEmpty(sceneName))
         {
+            yield return new WaitForSeconds(CsNormalLevelDesignOfCommon.COOL_TIME);
             _data = data;
             SceneManager.sceneLoaded += GameSceneLoaded;
             SceneManager.LoadScene(sceneName);

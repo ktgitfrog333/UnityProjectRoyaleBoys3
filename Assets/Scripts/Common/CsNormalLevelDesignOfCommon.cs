@@ -60,6 +60,11 @@ public static class CsNormalLevelDesignOfCommon
     /// </summary>
     public static readonly string GAMEOBJECT_NAME_IMTIMER01 = "ImTimer01";
     /// <summary>
+    /// ImFadeオブジェクト
+    /// </summary>
+    public static readonly string GAMEOBJECT_NAME_IMFADE = "ImFade";
+    //ImFade
+    /// <summary>
     /// タイトル画面のシーン名
     /// </summary>
     public static readonly string SCENES_NAME_01_TITLE = "01_Title";
@@ -115,6 +120,10 @@ public static class CsNormalLevelDesignOfCommon
     /// 大砲位置補正_Z
     /// </summary>
     public static readonly float PIPE_PARTS_POSITION_Z = -5.7214f;
+    /// <summary>
+    /// シーン遷移時のクールタイム
+    /// </summary>
+    public static readonly float COOL_TIME = 3.0f;
     /// <summary>
     /// 真を表すBoolean
     /// </summary>
