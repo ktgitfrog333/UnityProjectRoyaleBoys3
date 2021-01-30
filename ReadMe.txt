@@ -1,3 +1,25 @@
+コミット: 2a7c992eb5cb965a872cce8b941fb6c9b896123e [2a7c992]
+日時: 2021年1月30日 15:40:30
+★各画面にて、BGMとSE演出を実装
+・タイトル画面にて、BGMとSEのAudio Sourceを追加
+Assets\Scenes\01_Title.unity
+・メインゲーム画面にて、BGMとSEのAudio Sourceを追加
+Assets\Scenes\02_Stage001.unity
+・リザルト画面にて、BGMとSEのAudio Sourceを追加
+Assets\Scenes\03_Result.unity
+・ゴール時にSEを鳴らす処理を追加
+Assets\Scripts\ScGoalSequence.cs
+・UIのボタンを選択時、決定時にSEを鳴らす処理を追加
+Assets\Scripts\ScImageSwitch.cs
+・タイトルへ戻るUIのボタンにて、クリック時にSEを鳴らす処理を追加
+Assets\Scripts\ScReturnTitle.cs
+・タイマーが時間切れになった時にSEを鳴らす処理を追加
+Assets\Scripts\ScTimer.cs
+・選択SEオブジェクトのPrefabを作成
+Assets\Prefab\AuSelected.prefab
+・決定SEオブジェクトのPrefabを作成
+Assets\Prefab\AuSubmited.prefab
+
 コミット: b877bf6d7931c06ccfcbef8af96e24d5611d688f [b877bf6]
 日時: 2021年1月30日 15:10:44
 ★BGM、SE素材を追加
